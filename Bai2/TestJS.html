@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script>
+            function taskOne() {
+              let newChuoi="";
+              let chuoi="Ha Mong Khang";
+              for(i=chuoi.length-1;i>=0;i--){
+                  newChuoi=newChuoi+chuoi[i];
+              }
+              console.log(newChuoi);
+        }
+        function taskTwo(chuoi) {
+              if(chuoi===""){
+                return "";}
+              else{
+                return taskTwo(chuoi.substr(1))+chuoi.charAt(0);
+              }
+        } 
+
+        function taskThree() {
+              let array=[1,2,2,3,2,1,2,3,0];
+              let newArray=[];
+              for(i=array.length-1;i>=0;i--){
+                  newArray[array.length-i-1]=array[i];
+              }
+              console.log(newArray);
+        }
+        // function taskFour(a,n,i=0) {
+        //      if(i<n/2){
+        //        taskFour(a,n,i+1);
+        //        a[i]^=a[n-i-1]^=a[i]^=a[n-i-1];
+        //      }
+        //      else{
+        //        return 0;
+        //      }
+        // } 
+        const arrays = [];
+  function taskFour(array,n) {
+    if (n == 1){
+       arrays.push(array[0])
+       return arrays;
+    }
+    else
+    {
+      arrays.push(array[n-1]);
+      return taskFour(array, n-1);
+    }
+}
+
+
+  function taskFive(array,n){
+    if (n == 1){
+        return array[0];
+    }
+    return taskFive(array, n-1) + array[n-1];
+}
+
+  function fibonacci(n){
+    if(n<=3) return n;
+   return fibonacci(n-2)+fibonacci(n-1);
+    }
+    function taskSix(n){
+      let dem=0;
+      for (i=0;i<=n;i++){
+        if(n==fibonacci(i)){
+             dem++;
+        }
+      }
+      if(dem==1){
+        console.log(n+" la so fibonacci");
+      }
+      else{
+        console.log(n+" khong phai la fibonacci");
+      }
+    }
+    class Method {
+    data=[];
+    // view(){
+    //     var listStudent = this.data;
+    //     for(var i = 0; i < listStudent.length; i++){
+    //         console.log(listStudent[i])
+    //     }
+    // }
+    add(name, email){
+        var item = {
+            name : name,
+            email : email
+        };
+        this.data.push(item);
+    }
+
+    remove(id){
+        for(var i = 0; i < this.data.length; i++){
+            if (this.data[i].id === id) { 
+                this.data.splice(i, 1);
+            }
+        }
+    }
+    edit(id, name, email){
+        for(var i = 0; i < this.data.length; i++){
+            if (this.data[i].id === id) { 
+                this.data[i].name = name;
+                this.data[i].email = email;
+            }
+        }
+    }
+};
+        function results(){
+               taskOne();
+               console.log(taskTwo("Ha Mong Khang"));
+               taskThree();
+               console.log(taskFour([1,2,2,3,2,1,2,3,0],9));
+               console.log(taskFive([1,2,2,3,2,1,2,3,0],9));
+               taskSix(34);
+        }
+             results();
+             const method=new Method();
+             method.add('Nguyễn Văn Cường', "thehalfheart@gmail.com");
+             method.view()
+            </script>
+     </head>
+<body>
+
+</body>
+
+</html>
